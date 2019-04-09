@@ -7,8 +7,8 @@
 
 namespace Bajzany\NavigationMenu\DI;
 
-use Bajzany\NavigationMenu\Controls\IMenuControl;
-use Bajzany\NavigationMenu\Controls\MenuFactory;
+use Bajzany\NavigationMenu\IMenuControl;
+use Bajzany\NavigationMenu\MenuFactory;
 use Nette\Configurator;
 use Nette\DI\Compiler;
 use Nette\DI\CompilerExtension;
@@ -19,12 +19,13 @@ class NavigationMenuExtensions extends CompilerExtension
 	public function loadConfiguration()
 	{
 		$builder = $this->getContainerBuilder();
-		$builder->addDefinition($this->prefix('menuControl'))
-			->setImplement(IMenuControl::class);
 
 		$builder->addDefinition($this->prefix('menuFactory'))
 			->setFactory(MenuFactory::class)
 			->setInject(TRUE);
+
+		$builder->addDefinition($this->prefix('menuControl'))
+			->setImplement(IMenuControl::class);
 	}
 
 	/**

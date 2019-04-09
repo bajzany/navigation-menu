@@ -5,7 +5,7 @@
  * Email: radek.zika@dipcom.cz
  */
 
-namespace Bajzany\NavigationMenu\Controls;
+namespace Bajzany\NavigationMenu;
 
 class MenuFactory
 {
@@ -17,16 +17,17 @@ class MenuFactory
 
 	public function __construct(IMenuControl $control)
 	{
-
 		$this->control = $control;
 	}
 
 	/**
+	 * @param Menu $menu
 	 * @return MenuControl
 	 */
-	public function createMenu()
+	public function createMenu(Menu $menu)
 	{
-		return $this->control->create();
+		return $this->control->create($menu);
 	}
+
 
 }
