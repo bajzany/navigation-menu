@@ -18,7 +18,12 @@ class Item
 	/**
 	 * @var string
 	 */
-	private $link;
+	private $destination;
+
+	/**
+	 * @var array
+	 */
+	private $parameters = [];
 
 	/**
 	 * @return string
@@ -41,18 +46,47 @@ class Item
 	/**
 	 * @return string
 	 */
-	public function getLink(): string
+	public function getDestination(): string
 	{
-		return $this->link;
+		return $this->destination;
 	}
 
 	/**
-	 * @param string $link
+	 * @param string $destination
 	 * @return $this
 	 */
-	public function setLink(string $link)
+	public function setDestination(string $destination)
 	{
-		$this->link = $link;
+		$this->destination = $destination;
+		return $this;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getParameters(): array
+	{
+		return $this->parameters;
+	}
+
+	/**
+	 * @param mixed $parameters
+	 * @return $this
+	 */
+	public function setParameters(array $parameters)
+	{
+		$this->parameters = $parameters;
+		return $this;
+	}
+
+	/**
+	 * @param $key
+	 * @param $value
+	 * @return $this
+	 */
+	public function addParameter($key, $value)
+	{
+		$this->parameters[$key] = $value;
 		return $this;
 	}
 

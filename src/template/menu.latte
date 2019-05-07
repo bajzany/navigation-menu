@@ -5,8 +5,8 @@
 	<div class="box-body no-padding">
 		<ul class="nav nav-pills nav-stacked">
 			{foreach $navigationMenu->getItems() as $item}
-				<li {if $presenter->isLinkCurrent($item->getLink())} class="active" {/if}>
-					<a href="{$presenter->link($item->getLink())}">{$item->getTitle()}</a>
+				<li {if $presenter->isLinkCurrent($item->getDestination(), $item->getParameters())} class="active" {/if}>
+					<a href="{$presenter->link($item->getDestination(), $item->getParameters())}">{$item->getTitle()}</a>
 				</li>
 			{/foreach}
 		</ul>

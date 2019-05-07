@@ -49,12 +49,14 @@ class Menu
 	/**
 	 * @param string $title
 	 * @param string $link
+	 * @param array $parameters
 	 * @return Item
 	 */
-	public function createItem(string $title, string $link)
+	public function createItem(string $title, string $link, array $parameters = [])
 	{
 		$item = new Item();
-		$item->setLink($link);
+		$item->setDestination($link);
+		$item->setParameters($parameters);
 		$item->setTitle($title);
 		$this->items[] = $item;
 		return $item;
